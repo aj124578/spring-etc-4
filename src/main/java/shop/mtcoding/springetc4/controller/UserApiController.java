@@ -39,7 +39,7 @@ public class UserApiController {
 
     @PutMapping("/users/{id}") 
     public ResponseEntity<?> updateUser(@PathVariable Long id, User user) { // 수정이나 이런걸 할때는 주소로 받는 값(ex)id 값)은 신뢰성 검사를 해야 함
-        User userPS = userRepository.findById(id).get();
+        User userPS = userRepository.findById(id).get();  // findById를 했으면 영속화가 됐기 때문에 flush만 해도 됨
         if (userPS == null) {
             return new ResponseEntity<>("해당 유저가 없습니다", HttpStatus.BAD_REQUEST);
         }

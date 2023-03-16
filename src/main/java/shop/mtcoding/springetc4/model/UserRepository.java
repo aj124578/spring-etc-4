@@ -25,6 +25,14 @@ public class UserRepository {
         return em.merge(user); // merge : 기존에 있는것을 합친다 | id 안 넘겨주면 insert 해버리기 때문에 id 줘야함
 
     }
+    
+    /*
+      @Transactional
+      public void update() { // 개념적으로만 보면 flush만 하면됨 merge하면 또 덮어씌우고 flush 하는 것
+      em.flush();
+      }
+     */
+
 
     @Transactional
     public void delete(User user) {
